@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
-from numpy import cov
 from pkg.bookcase import bookcase
 import dateutil.parser
 from wtforms import (
@@ -166,4 +165,4 @@ if __name__ == "__main__":
     bk = bookcase()
     bk.import_from_api("Harry")
     bk.import_from_api("Hobbit")
-    app.run(port=10000)
+    app.run()

@@ -1,9 +1,8 @@
 import json
-
 try:
     from pkg.book import book
 except ImportError:
-    from book import book
+     from book import book
 import requests
 import unittest
 import dateutil.parser

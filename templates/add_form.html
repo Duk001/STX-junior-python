@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <meta charset="UTF-8" />
+    <title>Application Home Page</title>
+</head>
+
+<body>
+    <div class="wrapper bg-light vh-100">
+
+        <div class="vh-100 d-flex justify-content-center align-items-center">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title text-light">{{mode}}</h5>
+                    <div>
+                        <div class="col bg-dark" id="side-bar-search ">
+
+                            <div id="search-group ">
+                                <form method="POST" action={{submit_address}}>
+                                    {{ form.csrf_token }}
+
+                                <div class="input-group mb-3 bg-dark text-light">
+                                   <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1 ">Tytuł: </span>
+                                    </div>
+                                    {{form.title(size=40)}}
+                                </div>
+
+                                {% if form.title.errors %}
+                                <ul class="errors">
+                                    {% for error in form.title.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2 ">Autor: </span>
+                                    </div>
+                                    {{form.author(size=40)}}
+                                </div>
+
+                                {% if form.author.errors %}
+                                <ul class="errors">
+                                    {% for error in form.author.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3 ">Język: </span>
+                                    </div>
+                                    {{form.language(size=40)}}
+                                </div>
+
+                                {% if form.language.errors %}
+                                <ul class="errors">
+                                    {% for error in form.language.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon4 ">ISBN: </span>
+                                    </div>
+                                    {{form.isbn(size=40)}}
+                                </div>
+                                {% if form.isbn.errors %}
+                                <ul class="errors">
+                                    {% for error in form.isbn.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon5 ">Strony: </span>
+                                    </div>
+                                    {{form.pages(size=40)}}
+                                </div>
+                                {% if form.pages.errors %}
+                                <ul class="errors">
+                                    {% for error in form.pages.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon6 ">Okładka: </span>
+                                    </div>
+                                    {{form.cover_url(size=40)}}
+                                </div>
+                                {% if form.cover_url.errors %}
+                                <ul class="errors">
+                                    {% for error in form.cover_url.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon7 ">Data: </span>
+                                    </div>
+                                    {{form.date(class= "DateField", type="date")}}
+                                </div>
+                                {% if form.date.errors %}
+                                <ul class="errors">
+                                    {% for error in form.date.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <input type="submit" value="Zapisz" class="btn btn-primary btn-lg">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<style>
+    .card-body {
+        background-color: #212529;
+        margin: 20px;
+    }
+</style>
